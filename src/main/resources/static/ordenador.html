@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+          <h5 class="navbar-brand">Manipulador de documentos</h5>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Manipulador de documentos</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link"  href="index.html">Docx em pdf</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="ordenador.html">Ordenar alfabeticamente</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pesquisa por palavras-chave</a>
+                </li>
+      
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="input-group" id="div-responsive">
+        <span class="input-group-text" id="label-responsive">COLE AQUI AS PALAVRAS PARA ORDENA-LAS</span>
+        
+        <textarea class="form-control" aria-label="With textarea" id="ordenado"></textarea>
+        <button onclick="sortedText()" class="btn btn-outline-secondary" id="organizar">Ordenar</button>
+        <a href="/order/txt" class="btn btn-outline-secondary" id="download-txt">Baixar documento</a>
+      </div>
+      <h1 class="centralizado">ESCOLHA UM ARQUIVO QUE VOCÊ QUEIRA ORDENAR</h1>
+      <main>
+      <form id="form-index" class="input-group mb-3" enctype="multipart/form-data" action="javascript:void(0)">
+        <input type="file" class="form-control" id="arquivo-texto" name="file">
+        <input type="submit" class="btn btn-outline-secondary" value="Ordenar" id="enviar">
+        <progress id="upload-order" value="0" max="100"></progress>
+        <a href="/order/file" id="download-file" class="btn btn-outline-secondary">Baixar documento</a>
+    </form>
+  </main>   
+    <script>
+      let form = document.getElementById("form-index")
+      let upload = document.getElementById("upload-order")
+      let down  = document.getElementById("download-file")
+      form.addEventListener("submit",sendForm,false)
+      function sendForm(evt){
+        let formData, ajax, pct;
+        formData = new FormData(evt.target);
+        ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function(){
+        if(ajax.readyState==4){
+          form.reset()
+          upload =ajax.response
+          down.style.display="block"
+          
+        }else{
+          upload.style.display="block"
+
+        }
+        ajax.upload.addEventListener("progress",function(evt){
+          pct = Math.round(evt.loaded/evt.total)*100
+          upload.setAttribute("value",pct)
+        },false)
+
+        
+    }
+    ajax.open("POST","/api/organizar")
+        ajax.send(formData)
+  }
+    </script>  
+  <script src="orderScript.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>    
+
+</html>

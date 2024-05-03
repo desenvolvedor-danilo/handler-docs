@@ -1,0 +1,6 @@
+com/example/demo/DemoApplication.class
+com/example/demo/utils/ExtractorExtension.class
+com/example/demo/controller/FilesOrdedController.class
+com/example/demo/convertions/Converter.class
+com/example/demo/controller/FileStorageController.class
+com/example/demo/utils/textbrut/ReceptionText.class
