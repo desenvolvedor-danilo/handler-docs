@@ -43,11 +43,12 @@ public class FileStorageController extends HttpServlet{
         var path ="./";    
         var output="./file-docx-converted.pdf";
         var caminho =path+file.getOriginalFilename()+"."+ExtractorExtension.extractExtension(file.getOriginalFilename());
-        log.info("Novo nome do arquivo", caminho);
+        
         try {
+            
             Files.copy(file.getInputStream(), Path.of(caminho), StandardCopyOption.REPLACE_EXISTING);
             converterPDF.convert(caminho, output);
-            return new ResponseEntity<String>("{\"Mensagen\":\"Arquivo carregado com sucesso\"}",HttpStatus.OK);
+            return new ResponseEntity<String>("{\"Mensagem\":\"Arquivo carregado com sucesso\"}",HttpStatus.OK);
         } catch (Exception e) {
             log.error("Erro ao processar arquivo", e);
 

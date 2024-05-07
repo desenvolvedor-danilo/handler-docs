@@ -117,13 +117,13 @@ animation: pisca .7s infinite;
 }
 #label-responsive{
   display: block;
-  margin: auto auto 2px;
-  width: 99%;
+  margin: auto auto;
+  width: 98%;
   border-radius: 2px;
 
 }
 #ordenado{
-  width: 99%;
+  width: 98%;
   height: 150px;
   margin: auto auto 2px;
   border-radius:2px ;
@@ -136,7 +136,7 @@ animation: pisca .7s infinite;
   font-size: 1.1em;
 }
 #organizar{
-  margin-left: 3px ;
+  margin-left: 5px ;
   border-radius: 3px;
 }
 .centralizado{
@@ -146,11 +146,12 @@ animation: pisca .7s infinite;
 #form-index{
   display: block;
   margin: auto;
-  font-size: 1.4em;
-  width: 99%;
+  font-size: 1.2em;
+  width: 98%;
+  height: 350px;
 }
 .centralizado{
-  font-size: 1.1em;
+  font-size: 0.9em;
 }
 
 #modal-div{
@@ -231,11 +232,11 @@ body{
         border:1px black solid;
         border-radius:3px;
         width: fit-content;
-        padding: 5px;
-        margin: auto auto;
-        margin-top: 30px;
-        font-size: 1.4em;
-        
+        padding:5px;
+        position: absolute;
+        bottom: 2%;
+        font-size: 1.1em;
+        right: 1%;
     }
     #download:hover{
       box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.5);
@@ -244,18 +245,15 @@ body{
   #upload{
     border: 1px black solid;
     width: 98%;
-    margin: 1% 1%;
+    left: 1%;
+    right: 1%;
     height: 20px;
-    display: none;
     position: absolute;
-    bottom: 2px;
+    display: none;
     border-radius: 4px;
+    bottom: 15%;
   }
-  #modal-body{
-      display: none;
-      margin: auto;
-      width: fit-content;
-  }
+
   #modal-body>p{
       font-size: 1.4em;
   }
@@ -269,7 +267,7 @@ body{
     #form{
       display:block;
       width: 465px;
-      height: 300px;
+      height: 350px;
       margin: auto;
       margin-top: 5px;
   

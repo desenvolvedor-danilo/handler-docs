@@ -14,14 +14,12 @@ function sendForm(evt){
      link.style.display="block";
      div.style.display="block";
    }else{
-     upload.style.display="block";
+    upload.style.display="block";
    }
    ajax.upload.addEventListener('progress',function(evt){
-     pct = Math.round((evt.loaded/evt.total)*100);
-     upload.setAttribute("value",pct);
-     
-     
-   },false);
+    pct = Math.round((evt.loaded/evt.total)*100);
+    upload.setAttribute("value",pct);
+  },false);
  }
  ajax.open('POST',"/api/arquivo")
  ajax.send(formaData);
