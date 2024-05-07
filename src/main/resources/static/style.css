@@ -110,7 +110,7 @@ animation: pisca .7s infinite;
   border-radius: 3px;
 }
 
-  @media (max-width:500px){
+  @media (max-width:740px){
 #div-responsive{
   display: block;
   margin: auto auto;
@@ -204,7 +204,7 @@ body{
 #form{
   display: block;
   border-radius: 3px;
-  width: 530px;
+  width: 545px;
   height: 450px;
   margin: auto;
   border: 1px black solid;
@@ -220,7 +220,6 @@ body{
 }
 #envio{
   display: block;
-  float: right;
   margin-top: 5px;
   margin-right: 2px;
   border-radius: 3px;
@@ -263,10 +262,10 @@ body{
   .fixed-top {
       position: relative;
   }
-  @media(max-width:500px){
+  @media(max-width:740px){
     #form{
       display:block;
-      width: 465px;
+      width: 98%;
       height: 350px;
       margin: auto;
       margin-top: 5px;
@@ -284,7 +283,7 @@ body{
       border-radius: 5px;
     }
     #offcanvasNavbar{
-      width: 50%;
+      width: 55%;
       font-size: 0.8em;
   }
   #offcanvasNavbarLabel{
@@ -295,7 +294,7 @@ body{
 
     #form{
       display:block;
-      width: 285px;
+      width: 98%px;
       height: 200px;
       margin: auto;
       margin-top: 5px;
